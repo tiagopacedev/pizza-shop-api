@@ -1,10 +1,11 @@
 import { defineConfig } from 'drizzle-kit'
+import { env } from './src/env'
 
 export default defineConfig({
-  dialect: 'postgresql',
   schema: './src/db/schema/index.ts',
   out: './drizzle',
+  dialect: 'postgresql',
   dbCredentials: {
-    url: 'postgres://docker:docker@localhost:5432/pizza_shop',
+    url: env.DATABASE_URL,
   },
 })
